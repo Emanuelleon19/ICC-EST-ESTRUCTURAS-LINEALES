@@ -39,6 +39,7 @@ public class Pantalla {
         this.ruta = ruta;
     }
 
+    
     @Override
     public String toString() {
         return "Pantalla [ruta=" + ruta + "]";
