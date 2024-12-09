@@ -2,7 +2,6 @@ package Materia.Queues;
 
 import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
-import Materia.Models.Node;
 import Materia.Models.NodeGeneric;
 
 public class QueueGeneric<T> {

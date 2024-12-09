@@ -2,6 +2,8 @@ package Materia;
 import Materia.Stacks.Stack;
 import Materia.Stacks.StackGeneric;
 import Models2.Pantalla;
+
+import Controller.MenuController;
 import Materia.Queues.Queue;
 import Materia.Queues.QueueGeneric;
 
@@ -11,6 +13,11 @@ public class App {
         //runStackGeneric();
         runQueue();
         runQueueGeneric();
+        runControllerMannager();
+    }
+    private static void runControllerMannager(){
+        MenuController menuController = new MenuController();
+        menuController.showMenu();
     }
 
     public static void runStack(){
@@ -92,4 +99,6 @@ public class App {
         System.out.println("Estoy en " + cola.peek().getRuta());
         cola.printQueueGeneric();
     }
+
+
 }
