@@ -22,10 +22,10 @@ public class MenuController {
                     addContact();
                     break;
                 case "2":
-                    findContact();
+                    findContactByName();
                     break;
                 case "3":
-                    deleteContact();
+                    deleteContactByName();
                     break;
                 case "4":
                     printList();
@@ -43,12 +43,22 @@ public class MenuController {
         }
     }
 
-    private void deleteContact() {
+    private void deleteContactByName() {
+        String name = conseloView.getInput("Enter a name to delete: ");
+        contactManager.deleteContactByName(name);
+        conseloView.showMessage("Contact delete if it existed");
     }
 
     
 
-    private void findContact() {
+    private void findContactByName() {
+        String name = conseloView.getInput("Enter a name to search: ");
+        Contact<?,?> contact = contactManager.findContactByName(name);
+        if (contact != null) {
+            conseloView.showMessage("Contact found: " + contact);
+        }else{
+            conseloView.showMessage("Contact not found 404");
+        }
     }
 
     private void addContact() {
