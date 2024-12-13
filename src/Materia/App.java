@@ -3,7 +3,11 @@ import Materia.Stacks.Stack;
 import Materia.Stacks.StackGeneric;
 import Models2.Pantalla;
 
+import java.util.Scanner;
+
 import Controller.MenuController;
+import Ejercicio_01_sign.SignValidator;
+import Ejercicio_02_sorting.StackSorter;
 import Materia.Queues.Queue;
 import Materia.Queues.QueueGeneric;
 
@@ -11,9 +15,11 @@ public class App {
     public static void main(String[] args) throws Exception {
         //runStack();
         //runStackGeneric();
-        runQueue();
-        runQueueGeneric();
-        runControllerMannager();
+        //runQueue();
+        //runQueueGeneric();
+        //runControllerMannager();
+        runSignValidator();
+        runStackSorter();
     }
     private static void runControllerMannager(){
         MenuController menuController = new MenuController();
@@ -100,5 +106,38 @@ public class App {
         cola.printQueueGeneric();
     }
 
+    public static void runSignValidator() {
+        SignValidator validator = new SignValidator();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingresa una cadena con paréntesis, corchetes o llaves para validar:");
+        String input = scanner.nextLine();
+        if (validator.isValid(input)) {
+            System.out.println("La cadena ingresada esta correctamente cerrada.");
+        } else {
+            System.out.println("La cadena no esta cerrada correctamente.");
+        }
 
+        scanner.close();
+    }
+    
+    public static void runStackSorter() {
+        // Crear una instancia de StackGeneric y agregar elementos
+        StackGeneric<Integer> stack = new StackGeneric<>();
+        stack.push(7);
+        stack.push(11);
+        stack.push(24);
+        stack.push(22);
+        stack.push(3);
+        stack.push(5);
+
+    
+        System.out.println("Pila antes de ordenar: " + stack);
+    
+        // Usar StackSorter para ordenar la pila
+        StackSorter sorter = new StackSorter();
+        sorter.sortStack(stack);
+    
+        System.out.println("Pila después de ordenar: " + stack);
+    }
+    
 }
